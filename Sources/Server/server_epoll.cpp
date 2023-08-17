@@ -56,7 +56,6 @@ int main(){
     size_t readys;
     while(1){
         readys = epoll_wait(epfd, readyEvents, MAX_CLIENT, -1);
-        // printf("ready is %d\n", readys);
         for (int i =0 ;i < readys; ++i){
             if (readyEvents[i].data.fd == server_fd){
                 // If server Socket has ready, that means it has another connections
@@ -79,7 +78,7 @@ int main(){
                     epoll_ctl(epfd, EPOLL_CTL_DEL, readyEvents[i].data.fd, &client_events[1]);
                 }else{
                     buffer[byteRead] = '\0';
-                    printf("Receive from client %s\n", buffer);
+                    printf("[Client] %s\n", buffer);
                 }
 
             }

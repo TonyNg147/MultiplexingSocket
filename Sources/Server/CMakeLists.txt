@@ -1,5 +1,5 @@
 project(Server)
-set(SOURCES server_epoll.c)
+set(SOURCES server_epoll.cpp)
 add_executable(SERVER ${SOURCES})
 set_target_properties(SERVER
     PROPERTIES

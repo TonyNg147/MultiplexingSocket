@@ -5,7 +5,9 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <string.h>
+#include <string>
 #include <arpa/inet.h>
+#include <iostream>
 #define MAX_TRANSFER 4096
 void throwError(const char* errorMessage){
     perror(errorMessage);
@@ -30,8 +32,15 @@ int main(){
     const char* message = "Hello from the client";
     nByteTransferred = send(client_fd, message, strlen(message),  0);
     printf("Send to server %s\n", message);
-    read(client_fd, buffer, MAX_TRANSFER);
-    printf("Received from server %s\n", buffer);
+    std::string msgServer;
+    while(1){
+        printf("[Client] Send to server: ");
+        std::getline(std::cin, msgServer);
+        send(client_fd, msgServer.c_str(), msgServer.size(),0);
+
+    }
+    // read(client_fd, buffer, MAX_TRANSFER);
+    // printf("Received from server %s\n", buffer);
     close(client_fd);
     return EXIT_SUCCESS;
 }

@@ -1,5 +1,5 @@
 project(Client)
-set(SOURCES client.c)
+set(SOURCES client.cpp)
 add_executable(Client ${SOURCES})
 set_target_properties(Client
     PROPERTIES
