@@ -39,8 +39,6 @@ int main(){
         send(client_fd, msgServer.c_str(), msgServer.size(),0);
 
     }
-    // read(client_fd, buffer, MAX_TRANSFER);
-    // printf("Received from server %s\n", buffer);
     close(client_fd);
     return EXIT_SUCCESS;
 }
