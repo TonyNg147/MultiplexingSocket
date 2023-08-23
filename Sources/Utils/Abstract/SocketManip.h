@@ -18,7 +18,7 @@ namespace skt{
     static constexpr const int INVALID_SOCKET = -1;
     static void handleError(const std::string& error){
         fprintf(stderr, "%s", error.c_str());
-        printf("error no is %d\n",errno);
+        printf("error no is %s\n",strerror(errno));
         exit(1);
     }
     
